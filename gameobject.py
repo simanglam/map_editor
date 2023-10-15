@@ -2,10 +2,10 @@ import pygame
 
 class BaseMapObject(pygame.sprite.Sprite):
 
-    def __init__(self, position: tuple, image = None) -> None:
+    def __init__(self, position: tuple ,image = None) -> None:
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = pygame.surface.Surface((50, 50))
+        self.image = pygame.surface.Surface((1, 1))
 
         self.image.fill((0, 0, 0))
 
