@@ -38,7 +38,6 @@ while running:
         display_surface.blit(pygame.transform.scale(i.image, (25, 25)), (i.rect.x * size, i.rect.y * size))
     pygame.display.update()
 
-
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
@@ -47,7 +46,6 @@ while running:
 
             if event.key == pygame.K_e:
                 with open("level", "w+") as map_file:
-                    del output
                     output = {}
                     output['level'] = "Test"
                     output['size'] = size*ratio
@@ -55,6 +53,7 @@ while running:
                     for i in terrian_group.sprites():
                         output['mapdata'].append({"type" : object_dict[type(i)] , "x" : i.rect.x * size * ratio , 'y' : i.rect.y * size * ratio})
                     json.dump(output, map_file)
+                    del output
 
     
         if event.type == pygame.MOUSEBUTTONDOWN:
