@@ -7,13 +7,17 @@ class BaseMapObject(pygame.sprite.Sprite):
 
         self.image = pygame.surface.Surface((1, 1))
 
-        self.image.fill((0, 0, 0))
-
         self.rect = self.image.get_rect()
+        self.image = pygame.image.load(image)
         self.rect.x, self.rect.y = position
+        self.type = None
 
     def update(self, shift):
         self.rect.x += shift
+    
+    def set_type(self, _type):
+        self.type = _type
+        return self
 
     def on_top(self, object):
         object.air = False
