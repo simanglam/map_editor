@@ -5,10 +5,11 @@ class BaseMapObject(pygame.sprite.Sprite):
     def __init__(self, position: tuple ,image = None) -> None:
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = pygame.surface.Surface((1, 1))
+        self.image = pygame.image.load(image)
 
         self.rect = self.image.get_rect()
-        self.image = pygame.image.load(image)
+        self.rect.width = self.image.get_width() / 50
+        self.rect.height = self.image.get_height()/ 50
         self.rect.x, self.rect.y = position
         self.type = None
 

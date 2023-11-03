@@ -14,7 +14,7 @@ class JsonMapDecoder:
 
         self.mapdata = None
 
-        self.decode("./mapdata/level1.json")
+        self.decode(f"{__file__}/mapdata/level1.json")
 
     def decode(self, file: str):
         with open(file, "r") as map_file:
